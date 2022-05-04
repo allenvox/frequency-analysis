@@ -1,0 +1,19 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build application
+        run: make
+
+      - name: Run application
+        run: bin/calcFrequency text1.txt text2.txt
+
+      - name: Check the result file
+        run: cat text2.txt
