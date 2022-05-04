@@ -28,7 +28,7 @@ void printHelp() {
 }
 
 int checkArgs(int argc, char** argv) {
-    if(argc != 3 && strstr(argv[2], ".txt") && strstr(argv[3], ".txt")) {
+    if(argc != 3 || strstr(argv[2], ".txt") || strstr(argv[3], ".txt")) {
         printHelp();
         return -1;
     }
