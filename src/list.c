@@ -1,6 +1,7 @@
 #include "list.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 listnode *list_createnode(char *key, int value) {
     listnode *p;
