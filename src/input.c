@@ -27,8 +27,21 @@ void printHelp() {
     printf("\tcalcFrequency <in-file-name> <out-file-name>\n\n");
 }
 
-int checkArgs(int argc, char** argv) {
-    if(argc != 3 || strstr(argv[2], ".txt") || strstr(argv[3], ".txt")) {
+int isSuffix(char *substring, char *string) {
+    int n1 = strlen(substring), n2 = strlen(string);
+    if (n1 > n2) {
+        return -1;
+    }
+    for (int i=0; i<n1; i++) {
+        if (substring[n1 - i - 1] != string[n2 - i - 1]) {
+            return -1;
+        }
+    }
+    return 0;
+}
+
+int checkArgs(int argc, char **argv) {
+    if(argc != 3 || isSuffix(".txt", argv[1]) != 0 || isSuffix(".txt", argv[2]) != 0) {
         printHelp();
         return -1;
     }
