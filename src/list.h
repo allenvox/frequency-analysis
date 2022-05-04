@@ -19,3 +19,4 @@ void list_print(listnode *head);
 void list_write_file(FILE *in, listnode *head);
 void list_reverse(listnode **head);
 void list_sort_descending(listnode **head);
+void list_fill_with_words(listnode **head, char **words, int size);

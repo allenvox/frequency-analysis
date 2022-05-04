@@ -106,3 +106,14 @@ void list_sort_descending(listnode **head) {
     list_sort(*head);
     list_reverse(head);
 }
+
+void list_fill_with_words(listnode **head, char **words, int size) {
+    for(int i = 1; i < size; i++) {
+        listnode *node = list_lookup(*head, words[i]);
+        if(node != NULL) {
+            node->value++;
+        } else {
+            *head = list_addfront(*head, words[i], 1);
+        }
+    }
+}
